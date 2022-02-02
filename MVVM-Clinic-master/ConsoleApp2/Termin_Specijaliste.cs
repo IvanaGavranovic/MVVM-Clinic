@@ -20,6 +20,8 @@ namespace ConsoleApp2
         }
     
         public int Id { get; set; }
+        public string Datum { get; set; }
+        public string Vreme { get; set; }
     
         public virtual ICollection<Pregled_Specijaliste> Pregled_Specijaliste { get; set; }
     }

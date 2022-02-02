@@ -497,6 +497,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="Korisnicko_Ime" Type="String" Nullable="false" />
+          <Property Name="Lozinka" Type="String" Nullable="false" />
+          <Property Name="Uloga" Type="String" Nullable="false" />
+          <Property Name="Kontakt" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Ulica" Type="String" Nullable="false" />
+          <Property Name="Grad" Type="String" Nullable="false" />
+          <Property Name="Broj" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Pacijent" BaseType="ClinicDBModel.Korisnik" >
           <NavigationProperty Name="Departmen" Relationship="ClinicDBModel.PacijentDepartman" FromRole="Pacijent" ToRole="Departman" />
@@ -516,6 +526,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Departmen" Relationship="ClinicDBModel.KlinikaDepartman" FromRole="Klinika" ToRole="Departman" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Grad" Type="String" Nullable="false" />
+          <Property Name="Ulica" Type="String" Nullable="false" />
+          <Property Name="Broj" Type="String" Nullable="false" />
+          <Property Name="Telefon" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Departman">
           <Key>
@@ -525,6 +540,8 @@
           <NavigationProperty Name="Klinika" Relationship="ClinicDBModel.KlinikaDepartman" FromRole="Departman" ToRole="Klinika" />
           <NavigationProperty Name="Doktor" Relationship="ClinicDBModel.DoktorDepartman" FromRole="Departman" ToRole="Doktor" />
           <NavigationProperty Name="Pacijent" Relationship="ClinicDBModel.PacijentDepartman" FromRole="Departman" ToRole="Pacijent" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Sprat" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="KlinikaDepartman">
           <End Type="ClinicDBModel.Klinika" Role="Klinika" Multiplicity="0..1" />
@@ -544,6 +561,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Pregled" Relationship="ClinicDBModel.PregledTermin" FromRole="Termin" ToRole="Pregled" />
+          <Property Name="Datum" Type="String" Nullable="false" />
+          <Property Name="Vreme" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Pregled">
           <Key>
@@ -554,6 +573,8 @@
           <NavigationProperty Name="Pacijent" Relationship="ClinicDBModel.PacijentPregled" FromRole="Pregled" ToRole="Pacijent" />
           <NavigationProperty Name="Doktor" Relationship="ClinicDBModel.DoktorPregled" FromRole="Pregled" ToRole="Doktor" />
           <NavigationProperty Name="Ishod_Pregleda" Relationship="ClinicDBModel.Ishod_PregledaPregled" FromRole="Pregled" ToRole="Ishod_Pregleda" />
+          <Property Name="Opis" Type="String" Nullable="false" />
+          <Property Name="Obvljen" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="PregledTermin">
           <End Type="ClinicDBModel.Pregled" Role="Pregled" Multiplicity="*" />
@@ -566,6 +587,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Pregleds" Relationship="ClinicDBModel.Ishod_PregledaPregled" FromRole="Ishod_Pregleda" ToRole="Pregled" />
           <NavigationProperty Name="Pregled_Specijaliste1" Relationship="ClinicDBModel.Pregled_SpecijalisteIshod_Pregleda" FromRole="Ishod_Pregleda" ToRole="Pregled_Specijaliste" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="PacijentPregled">
           <End Type="ClinicDBModel.Pacijent" Role="Pacijent" Multiplicity="0..1" />
@@ -591,6 +614,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Dijagnoza" Relationship="ClinicDBModel.DijagnozaTerapija" FromRole="Terapija" ToRole="Dijagnoza" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" />
+          <Property Name="Vrsta_Terapije" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="DijagnozaTerapija">
           <End Type="ClinicDBModel.Dijagnoza" Role="Dijagnoza" Multiplicity="0..1" />
@@ -634,6 +660,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Pregled_Specijaliste" Relationship="ClinicDBModel.Termin_SpecijalistePregled_Specijaliste" FromRole="Termin_Specijaliste" ToRole="Pregled_Specijaliste" />
+          <Property Name="Datum" Type="String" Nullable="false" />
+          <Property Name="Vreme" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="Termin_SpecijalistePregled_Specijaliste">
           <End Type="ClinicDBModel.Termin_Specijaliste" Role="Termin_Specijaliste" Multiplicity="0..1" />

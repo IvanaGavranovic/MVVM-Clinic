@@ -15,6 +15,9 @@ namespace ConsoleApp2
     public partial class Terapija
     {
         public int Id { get; set; }
+        public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public string Vrsta_Terapije { get; set; }
     
         public virtual Dijagnoza Dijagnoza { get; set; }
     }

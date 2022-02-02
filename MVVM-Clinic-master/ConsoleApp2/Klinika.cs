@@ -20,6 +20,11 @@ namespace ConsoleApp2
         }
     
         public int Id { get; set; }
+        public string Naziv { get; set; }
+        public string Grad { get; set; }
+        public string Ulica { get; set; }
+        public string Broj { get; set; }
+        public string Telefon { get; set; }
     
         public virtual ICollection<Departman> Departmen { get; set; }
     }

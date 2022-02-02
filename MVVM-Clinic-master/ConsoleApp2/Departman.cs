@@ -21,6 +21,8 @@ namespace ConsoleApp2
         }
     
         public int Id { get; set; }
+        public string Naziv { get; set; }
+        public string Sprat { get; set; }
     
         public virtual Klinika Klinika { get; set; }
         public virtual ICollection<Doktor> Doktor { get; set; }

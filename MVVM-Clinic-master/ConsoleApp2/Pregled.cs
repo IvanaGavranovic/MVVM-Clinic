@@ -15,6 +15,8 @@ namespace ConsoleApp2
     public partial class Pregled
     {
         public int Id { get; set; }
+        public string Opis { get; set; }
+        public string Obvljen { get; set; }
     
         public virtual Termin Termins { get; set; }
         public virtual Pacijent Pacijent { get; set; }
